@@ -2,13 +2,29 @@
 # Author: Gerry Donnelly
 # Program takes Height and Weight inputs from the user and outputs the BMI score and indicates if Low, Normal or High
 
+class color: # Define Class color to help with formatting the output strings, sourced from https://stackoverflow.com/questions/8924173/how-do-i-print-bold-text-in-python/8930747
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
 
-H = int(input("Please enter your height in CM: "))
-W = int(input("Please enter your weight in KG: "))
-BMI = W/((H/100)*2) # Calculate the BMI
-if BMI<18.5: # Check if it is low
-    print ("Your BMI is " + str(BMI) + " and is LOW ")
-elif BMI>25:
-        print ("Your BMI is " +  str(BMI) + " and is HIGH") #Check if it is High
-else: 
-    print ("Congrats Your BMI is " + str(BMI) + " and is NORMAL ")# If not Low or High then it is Nornal. 
+format = color() 
+
+Height = int(input("Please enter your " + format.BOLD + format.UNDERLINE + "Height" + format.END + " in CM: "))
+Weight = int(input("Please enter your " + format.BOLD + format.UNDERLINE + "Weight" + format.END + "in KG: "))
+BMI = Weight/((Height/100)*2)   # Calculate the BMI
+
+if BMI<18.5:    # Check if it is low
+    print ("Your BMI is " + format.RED + format.BOLD + format.UNDERLINE + str(BMI) + " and is LOW" + format.END)
+
+elif BMI>25:    #Check if it is High
+        print ("Your BMI is " +  format.RED + format.BOLD + format.UNDERLINE+ str(BMI) + " and is HIGH" + format.END) 
+
+else:   # If not Low or High then it is Nornal.
+    print ("Congrats Your BMI is " + format.GREEN + format.BOLD + format.UNDERLINE + str(BMI)  + " and is NORMAL " + format.END) # If not Low or High then it is Nornal.
