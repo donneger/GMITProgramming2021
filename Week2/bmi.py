@@ -22,7 +22,7 @@ Weight = int(input("Please enter your " + format.BOLD + format.UNDERLINE + "Weig
 
 BMI = Weight/((Height/100)*2)   # Calculate the BMI from the user inputs.
 
-# This section checks the BMI result against the normal BMI ctriteria for Low, Normal, High.
+# This section checks the BMI result against the normal BMI ctriteria for Low, Normal, High and prints out the result, text is formatted based on the result. 
 if BMI<18.5:    # Check if BMI low
     print ("Your BMI is " + format.RED + format.BOLD + format.UNDERLINE + str(BMI) + " and is LOW" + format.END)
 elif BMI>25:    #Check if BMI is High
